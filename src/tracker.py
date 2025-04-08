@@ -9,9 +9,9 @@ import numpy as np
 from matplotlib.dates import DateFormatter, date2num
 import matplotlib.ticker as ticker
 
-class BodyMetricsTracker:
+class MetricsTracker:
     def __init__(self):
-        self.data_file = "body_metrics_data.json"
+        self.data_file = "metrics_data.json"
         self.metrics = {}
         self.load_data()
         
@@ -271,7 +271,7 @@ class BodyMetricsTracker:
             ax.xaxis.set_major_locator(ticker.MaxNLocator(nbins=max(date_range//90+1, 4)))
         
         ax.grid(True, linestyle='--', alpha=0.7)
-        ax.set_title('Body Metrics Tracker', fontsize=16)
+        ax.set_title('Metrics Tracker', fontsize=16)
         ax.set_xlabel('Date', fontsize=12)
         ax.set_ylabel('Measurement', fontsize=12)
         
@@ -283,12 +283,12 @@ class BodyMetricsTracker:
 
 def main():
     # Set up command line arguments
-    parser = argparse.ArgumentParser(description='Body Metrics Tracker')
+    parser = argparse.ArgumentParser(description='Metrics Tracker')
     parser.add_argument('-g', '--graph-only', action='store_true', 
                         help='Only display the graph without recording new data')
     args = parser.parse_args()
     
-    tracker = BodyMetricsTracker()
+    tracker = MetricsTracker()
     
     try:
         if not args.graph_only:
