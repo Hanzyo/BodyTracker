@@ -7,6 +7,10 @@ Make sure you have a running python environment
 pip3 install matplotlib numpy
 src/tracker.py
 ```
+To only show the graph
+```
+src/tracker.py -g
+```
 ## Main features
 - Easy-to-use command line interface
 - Support of dynamic metric addition
